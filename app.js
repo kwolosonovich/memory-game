@@ -51,15 +51,9 @@ image.addEventListener("click", function() {
     image.style.visiibility = visible;
     pairs.secondCard = image.src;
     if (pairs.firstImage === pairs.secondImage) {
-      alert("Match!");
-      scoreCalc();
-      pairs.firstCard = undefined;
-      pairs.secondCard = undefined;
+      match()
     } else if (pairs.firstImage !== pairs.secondImage) {
-      alert("Not a match. Try again!");
-      pairs.firstCard = undefined;
-      pairs.secondCard = undefined;
-      image.style.visiibility = hidden;
+      notAMatch()
     }
   }
 });
@@ -69,6 +63,21 @@ var pairs = {
   firstCard: undefined,
   secondCard: undefined
 };
+
+function match() {
+    alert("Match!");
+    scoreCalc();
+    pairs.firstCard = undefined;
+    pairs.secondCard = undefined;
+}
+
+function notAMatch () {
+    alert("Not a match. Try again!");
+    pairs.firstCard = undefined;
+    pairs.secondCard = undefined;
+    image.style.visiibility = "hidden";
+
+}
 
 
 // Scoring
