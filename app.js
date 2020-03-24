@@ -1,22 +1,22 @@
-var score = document.querySelector("h4.score");
+var score = document.getElementsByClassName("score")
 var image = document.querySelectorAll("img.img-thumbnail")
 var startGame = document.querySelector("button")
 var alertText = document.querySelector("h4.alertText")
-var runningScore = 0;
 var imageSrcList = document.querySelectorAll("img.src")
+var runningScore = 0;
 
 // Start Game
 
-startGame.addEventListener("click", function(e) {
-  e.preventDefault();
+startGame.addEventListener("click", function() {
+//   e.preventDefault();
   setImage();
 });
 
 function setImage() {
     for (src of imageSrcList) {
-            image.src = `images/${randomImg}.png`;
-        }
+      image.src = `images/${randomImg}.png`;
     }
+}
 
 function randomImg() {
   let set = [1, 2, 3, 4, 5, 6];
@@ -44,7 +44,8 @@ function randomImg() {
 // Event listener - find matches
 
 image.addEventListener("click", function() {
-  image.style.visiibility = visible;
+    // e.preventDefault();
+    image.style.visiibility = visible;
   if (pairs.firstCard === undefined) {
     pairs.firstCard = image.src;
   } else if (pairs.firstCard !== undefined && pairs.firstCard === undefined) {
@@ -71,21 +72,19 @@ function match() {
     pairs.secondCard = undefined;
 }
 
-function notAMatch () {
+function notAMatch() {
     alert("Not a match. Try again!");
     pairs.firstCard = undefined;
     pairs.secondCard = undefined;
     image.style.visiibility = "hidden";
-
 }
 
 
 // Scoring
 
 function scoreCalc() {
-  var addTwo = runningScore + 2;
-  var scoreTotal = document.createTextNode(`Score: ${runningScore}`);
-    score.appendChild(scoreTotal)
+  runningScore += 2;
+  score.innerHTML = `Score: ${runningScore}`
     if (runningScore = 12) {
         alertText.innerHTML = "Congratulations, you won! Click Start to play again."
     }
