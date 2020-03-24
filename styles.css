@@ -6,22 +6,37 @@ h1 {
     text-align: center;
     color: #272343;
     margin: 20px;
+    font-family: 'Anton', sans-serif;
+    margin: 40px;
 }
 
 h2 {
     text-align: center;
+    font-family: 'Josefin Sans', sans-serif;
+    margin: 40px;
+}
+
+h4 {
+    text-align: center;
+    font-family: 'Josefin Sans', sans-serif;
+    margin: 20px;
 }
 
 img {
     margin: auto;
-    width: 80%;
+    width: 100%;
     margin-top: 1rem;
     margin-bottom: 1rem;
+    visibility: hidden;
 }
 
-.btn {
-    color: white;
+
+.btn { 
+    margin: 20px;
     background-color: #bae8e8;
+    border-color: #272343 ;;
+    font-family: 'Josefin Sans', sans-serif;
+    /* margin: 20px; */
 }
 
 .centered {
@@ -29,4 +44,9 @@ img {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  font-size: 50px;
+  font-weight: bolder;
+  font-family: 'Anton', sans-serif;
+    color: #272343;
+    
 }

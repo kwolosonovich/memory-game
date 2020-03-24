@@ -1,12 +1,22 @@
 var score = document.querySelector("h4.score");
+var image = document.querySelectorAll("img.img-thumbnail")
+var startGame = document.querySelector("button")
+var alertText = document.querySelector("h4.alertText")
+var runningScore = 0;
+var imageSrcList = document.querySelectorAll("img.src")
 
-var image = document.querySelector("img.img-thumbnail")
+// Start Game
+
+startGame.addEventListener("click", function(e) {
+  e.preventDefault();
+  setImage();
+});
 
 function setImage() {
-    for (image of images) {
-        image.source = `images/${randomImg}.png` 
+    for (src of imageSrcList) {
+            image.src = `images/${randomImg}.png`;
+        }
     }
-}
 
 function randomImg() {
   let set = [1, 2, 3, 4, 5, 6];
@@ -20,17 +30,54 @@ function randomImg() {
       setMatch.push(set[randomNum]);
       set.splice(randomNum, 1);
       return randomNumber;
-    }    
+    }
   } else if (set.length === 0) {
     for (let i = 0; i < setMatch.length; i++) {
       let randomNum = Math.floor(Math.random() * max);
       set.splice(randomNum, 1);
       return randomNumber;
-    }    
+    }
   }
+}
 
- 
 
-  //   console.log(set)
-  //   console.log(setMatch)
+// Event listener - find matches
+
+image.addEventListener("click", function() {
+  image.style.visiibility = visible;
+  if (pairs.firstCard === undefined) {
+    pairs.firstCard = image.src;
+  } else if (pairs.firstCard !== undefined && pairs.firstCard === undefined) {
+    image.style.visiibility = visible;
+    pairs.secondCard = image.src;
+    if (pairs.firstImage === pairs.secondImage) {
+      alert("Match!");
+      scoreCalc();
+      pairs.firstCard = undefined;
+      pairs.secondCard = undefined;
+    } else if (pairs.firstImage !== pairs.secondImage) {
+      alert("Not a match. Try again!");
+      pairs.firstCard = undefined;
+      pairs.secondCard = undefined;
+      image.style.visiibility = hidden;
+    }
+  }
+});
+
+
+var pairs = {
+  firstCard: undefined,
+  secondCard: undefined
+};
+
+
+// Scoring
+
+function scoreCalc() {
+  var addTwo = runningScore + 2;
+  var scoreTotal = document.createTextNode(`Score: ${runningScore}`);
+    score.appendChild(scoreTotal)
+    if (runningScore = 12) {
+        alertText.innerHTML = "Congratulations, you won! Click Start to play again."
+    }
 }
