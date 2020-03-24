@@ -5,7 +5,7 @@ var alertText = document.querySelector("h4.alertText")
 var imageSrcList = document.querySelectorAll("img.src")
 var runningScore = 0;
 
-// Start Game
+// **Start Game
 
 startGame.addEventListener("click", function() {
 //   e.preventDefault();
@@ -41,7 +41,7 @@ function randomImg() {
 }
 
 
-// Event listener - find matches
+// **Event listener - find matches
 
 image.addEventListener("click", function() {
     // e.preventDefault();
@@ -59,7 +59,7 @@ image.addEventListener("click", function() {
   }
 });
 
-
+// **Helper functions - find matches
 var pairs = {
   firstCard: undefined,
   secondCard: undefined
@@ -80,7 +80,7 @@ function notAMatch() {
 }
 
 
-// Scoring
+// **Scoring
 
 function scoreCalc() {
   runningScore += 2;
