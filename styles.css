@@ -67,3 +67,7 @@ hr {
     color: #272343;
     text-shadow: -1px -1px 1px rgba(255,255,255,.1), 3px 3px 3px #bae8e8;
 }
+
+.hidden {
+    display: none;
+}
