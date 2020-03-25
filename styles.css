@@ -31,9 +31,11 @@ img {
     width: 100%;
     margin-top: 1rem;
     margin-bottom: 1rem;
-    visibility: hidden;
+    /* visibility: hidden; */
+    opacity: 0;
     
 }
+
 
 .top {
     border-top: 5px dotted white;
@@ -44,7 +46,6 @@ hr {
     border-top: 1.5px solid white;
     width: 90%;
 }
-
 
 .btn { 
     margin: 20px;
