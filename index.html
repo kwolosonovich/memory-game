@@ -1,6 +1,5 @@
-document.addEventListener("DOMContentLoaded", function() {
-
 <!DOCTYPE html>
+
 <html lang="en">
   <head>
     <title>Matching Game</title>
@@ -23,17 +22,24 @@ document.addEventListener("DOMContentLoaded", function() {
     />
   </head>
   <body>
-    <h1>Photo Memory</h1>
-    <hr class="top" />
-    <h2>Test your memory by finding a matching set of photos.</h2>
-    <hr class="top" />
+    <div class="header-style">
+      <h1>Photo Memory</h1>
+      <hr class="top-dotted" />
+    </div>
+    <hr />
+    <div class="description">
+      <h2>Test your memory by finding a matching set of photos.</h2>
+    </div>
     <div class="container flex-container">
       <div class="row">
         <div class="col-md-3">
-          <h4 class="score">Score: 0</h4>
+          <h4 class="score">Score: <span class="score" id="score">0</span></h4>
         </div>
-        <div class="col-md-6">
-          <h4 class="alertText"></h4>
+        <div class="col-md-3">
+          <h4 class="best-score">Best Score: <span id="best-score">0</span></h4>
+        </div>
+        <div class="col-md-3">
+          <h4 class="alert-text" id="header"></h4>
         </div>
         <div class="col-md-3 text-center">
           <button
@@ -46,109 +52,43 @@ document.addEventListener("DOMContentLoaded", function() {
       </div>
     </div>
     <hr />
+    <div class="body-style"> 
+      <div class="container flex-container hidden" id="game">
+        <div class="row">
+          <div class="col-md-3 card">
+            <img
+              src=""
+              class="img-responsive img-thumbnail center-block"
+              alt="Responsive image"
+            />
+            <div class="centered" id="card-number">1</div>
+          </div>
+          <div class="col-md-3 card">
+            <img
+              src=""
+              class="img-responsive img-thumbnail center-block"
+              alt="Responsive image"
+            />
+            <div class="centered" id="card-number">2</div>
+          </div>
+          <div class="col-md-3 card">
+            <img
+              src=""
+              class="img-responsive img-thumbnail center-block"
+              alt="Responsive image"
+            />
+            <div class="centered" id="card-number">3</div>
+          </div>
+          <div class="col-md-3 card">
+            <img
+              src=""
+              class="img-responsive img-thumbnail center-block"
+              alt="Responsive image"
+            />
+            <div class="centered" id="card-number">4</div>
+          </div>
+        </div>
 
-    <div class="container flex-container hidden" id="game">
-      <div class="row">
-        <div class="col-md-3 card">
-          <img
-            src=""
-            class="img-responsive img-thumbnail center-block"
-            alt="Responsive image"
-          />
-          <div class="centered">1</div>
-        </div>
-        <div class="col-md-3 card">
-          <img
-            src=""
-            class="img-responsive img-thumbnail center-block"
-            alt="Responsive image"
-          />
-          <div class="centered">2</div>
-        </div>
-        <div class="col-md-3 card">
-          <img
-            src=""
-            class="img-responsive img-thumbnail center-block"
-            alt="Responsive image"
-          />
-          <div class="centered">3</div>
-        </div>
-        <div class="col-md-3 card">
-          <img
-            src=""
-            class="img-responsive img-thumbnail center-block"
-            alt="Responsive image"
-          />
-          <div class="centered">4</div>
-        </div>
-      </div>
-      <div class="row flex-container">
-        <div class="col-md-3 card">
-          <img
-            src=""
-            class="img-responsive img-thumbnail center-block"
-            alt="Responsive image"
-          />
-          <div class="centered">4</div>
-        </div>
-        <div class="col-md-3 card">
-          <img
-            src=""
-            class="img-responsive img-thumbnail center-block"
-            alt="Responsive image"
-          />
-          <div class="centered">6</div>
-        </div>
-        <div class="col-md-3 card">
-          <img
-            src=""
-            class="img-responsive img-thumbnail center-block"
-            alt="Responsive image"
-          />
-          <div class="centered">7</div>
-        </div>
-        <div class="col-md-3 card">
-          <img
-            src=""
-            class="img-responsive img-thumbnail center-block"
-            alt="Responsive image"
-          />
-          <div class="centered">8</div>
-        </div>
-      </div>
-      <div class="row flex-container">
-        <div class="col-md-3 card">
-          <img
-            src=""
-            class="img-responsive img-thumbnail center-block"
-            alt="Responsive image"
-          />
-          <div class="centered">9</div>
-        </div>
-        <div class="col-md-3 card">
-          <img
-            src=""
-            class="img-responsive img-thumbnail center-block"
-            alt="Responsive image"
-          />
-          <div class="centered">10</div>
-        </div>
-        <div class="col-md-3 card">
-          <img
-            src=""
-            class="img-responsive img-thumbnail center-block"
-            alt="Responsive image"
-          />
-          <div class="centered">11</div>
-        </div>
-        <div class="col-md-3 card">
-          <img
-            src=""
-            class="img-responsive img-thumbnail center-block"
-            alt="Responsive image"
-          />
-          <div class="centered">12</div>
-        </div>
         <div class="row flex-container">
           <div class="col-md-3 card">
             <img
@@ -156,7 +96,7 @@ document.addEventListener("DOMContentLoaded", function() {
               class="img-responsive img-thumbnail center-block"
               alt="Responsive image"
             />
-            <div class="centered">13</div>
+            <div class="centered" id="card-number">5</div>
           </div>
           <div class="col-md-3 card">
             <img
@@ -164,7 +104,7 @@ document.addEventListener("DOMContentLoaded", function() {
               class="img-responsive img-thumbnail center-block"
               alt="Responsive image"
             />
-            <div class="centered">14</div>
+            <div class="centered" id="card-number">6</div>
           </div>
           <div class="col-md-3 card">
             <img
@@ -172,7 +112,7 @@ document.addEventListener("DOMContentLoaded", function() {
               class="img-responsive img-thumbnail center-block"
               alt="Responsive image"
             />
-            <div class="centered">15</div>
+            <div class="centered" id="card-number">7</div>
           </div>
           <div class="col-md-3 card">
             <img
@@ -180,9 +120,10 @@ document.addEventListener("DOMContentLoaded", function() {
               class="img-responsive img-thumbnail center-block"
               alt="Responsive image"
             />
-            <div class="centered">16</div>
+            <div class="centered" id="card-number">8</div>
           </div>
         </div>
+
         <div class="row flex-container">
           <div class="col-md-3 card">
             <img
@@ -190,7 +131,7 @@ document.addEventListener("DOMContentLoaded", function() {
               class="img-responsive img-thumbnail center-block"
               alt="Responsive image"
             />
-            <div class="centered">17</div>
+            <div class="centered" id="card-number">9</div>
           </div>
           <div class="col-md-3 card">
             <img
@@ -198,7 +139,7 @@ document.addEventListener("DOMContentLoaded", function() {
               class="img-responsive img-thumbnail center-block"
               alt="Responsive image"
             />
-            <div class="centered">18</div>
+            <div class="centered" id="card-number">10</div>
           </div>
           <div class="col-md-3 card">
             <img
@@ -206,7 +147,7 @@ document.addEventListener("DOMContentLoaded", function() {
               class="img-responsive img-thumbnail center-block"
               alt="Responsive image"
             />
-            <div class="centered">19</div>
+            <div class="centered" id="card-number">11</div>
           </div>
           <div class="col-md-3 card">
             <img
@@ -214,9 +155,10 @@ document.addEventListener("DOMContentLoaded", function() {
               class="img-responsive img-thumbnail center-block"
               alt="Responsive image"
             />
-            <div class="centered">20</div>
+            <div class="centered" id="card-number">12</div>
           </div>
         </div>
+
         <div class="row flex-container">
           <div class="col-md-3 card">
             <img
@@ -224,7 +166,7 @@ document.addEventListener("DOMContentLoaded", function() {
               class="img-responsive img-thumbnail center-block"
               alt="Responsive image"
             />
-            <div class="centered">21</div>
+            <div class="centered" id="card-number">13</div>
           </div>
           <div class="col-md-3 card">
             <img
@@ -232,7 +174,7 @@ document.addEventListener("DOMContentLoaded", function() {
               class="img-responsive img-thumbnail center-block"
               alt="Responsive image"
             />
-            <div class="centered">22</div>
+            <div class="centered" id="card-number">14</div>
           </div>
           <div class="col-md-3 card">
             <img
@@ -240,7 +182,7 @@ document.addEventListener("DOMContentLoaded", function() {
               class="img-responsive img-thumbnail center-block"
               alt="Responsive image"
             />
-            <div class="centered">23</div>
+            <div class="centered" id="card-number">15</div>
           </div>
           <div class="col-md-3 card">
             <img
@@ -248,16 +190,85 @@ document.addEventListener("DOMContentLoaded", function() {
               class="img-responsive img-thumbnail center-block"
               alt="Responsive image"
             />
-            <div class="centered">24</div>
+            <div class="centered" id="card-number">16</div>
+          </div>
+        </div>
+
+        <div class="row flex-container">
+          <div class="col-md-3 card">
+            <img
+              src=""
+              class="img-responsive img-thumbnail center-block"
+              alt="Responsive image"
+            />
+            <div class="centered" id="card-number">17</div>
+          </div>
+          <div class="col-md-3 card">
+            <img
+              src=""
+              class="img-responsive img-thumbnail center-block"
+              alt="Responsive image"
+            />
+            <div class="centered" id="card-number">18</div>
+          </div>
+          <div class="col-md-3 card">
+            <img
+              src=""
+              class="img-responsive img-thumbnail center-block"
+              alt="Responsive image"
+            />
+            <div class="centered" id="card-number">19</div>
+          </div>
+          <div class="col-md-3 card">
+            <img
+              src=""
+              class="img-responsive img-thumbnail center-block"
+              alt="Responsive image"
+            />
+            <div class="centered" id="card-number">20</div>
+          </div>
+        </div>
+
+        <div class="row flex-container">
+          <div class="col-md-3 card">
+            <img
+              src=""
+              class="img-responsive img-thumbnail center-block"
+              alt="Responsive image"
+            />
+            <div class="centered" id="card-number">21</div>
+          </div>
+          <div class="col-md-3 card">
+            <img
+              src=""
+              class="img-responsive img-thumbnail center-block"
+              alt="Responsive image"
+            />
+            <div class="centered" id="card-number">22</div>
+          </div>
+          <div class="col-md-3 card">
+            <img
+              src=""
+              class="img-responsive img-thumbnail center-block"
+              alt="Responsive image"
+            />
+            <div class="centered" id="card-number">23</div>
+          </div>
+          <div class="col-md-3 card">
+            <img
+              src=""
+              class="img-responsive img-thumbnail center-block"
+              alt="Responsive image"
+            />
+            <div class="centered" id="card-number">24</div>
           </div>
         </div>
       </div>
     </div>
-
     <hr />
+    <br />
+    <hr class="bottom-dotted" />
 
     <script src="app.js"></script>
   </body>
 </html>
-
-}
